@@ -1,4 +1,4 @@
-package game.inventory;
+package game.inventory.crops;
 
 /**
  * A class of a crop planted on the field;
@@ -10,17 +10,9 @@ public class PlantedCrop {
 			harvests,
 			rebear;
 	private boolean watered,
-					magicGrassed,
-					readyToHarvest,
-					harvestedOnce;
-
-	public boolean isMagicGrassed() {
-		return magicGrassed;
-	}
-
-	public boolean isReadyToHarvest() {
-		return readyToHarvest;
-	}
+			magicGrassed,
+			readyToHarvest,
+			harvestedOnce;
 
 	public PlantedCrop(SeedCrop seed) {
 		day = 0;
@@ -31,6 +23,14 @@ public class PlantedCrop {
 		this.daysToGrow = seed.getDaysToGrow();
 
 		watered = harvestedOnce = magicGrassed = readyToHarvest = false;
+	}
+
+	public boolean isMagicGrassed() {
+		return magicGrassed;
+	}
+
+	public boolean isReadyToHarvest() {
+		return readyToHarvest;
 	}
 
 	public boolean isWatered() {
@@ -44,6 +44,10 @@ public class PlantedCrop {
 	public void addDay() {
 		if (day < daysToGrow && watered)
 			day++;
+
+		if (day == daysToGrow)
+			readyToHarvest = true;
+
 		watered = false;
 	}
 
@@ -62,5 +66,18 @@ public class PlantedCrop {
 
 	public String getName() {
 		return name;
+	}
+
+	public void harvest() {
+		if (harvests > 1) {
+			harvests--;
+			magicGrassed = false;
+			readyToHarvest = false;
+			day = 0;
+			daysToGrow = rebear;
+			watered = false;
+		} else {
+			name = null;
+		}
 	}
 }

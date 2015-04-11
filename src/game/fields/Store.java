@@ -1,6 +1,6 @@
 package game.fields;
 
-import game.inventory.SeedCrop;
+import game.inventory.crops.SeedCrop;
 import game.inventory.StoreInventory;
 import game.player.Player;
 
@@ -25,9 +25,9 @@ public class Store extends Field {
 
 	public void openStore(Player p, Scanner scan) {
 		System.out.println("What would you like to buy?");
-		System.out.println("Seed        | Days to Grow | Days to Rebear | Number of Harvests | Price | Selling Price | Stamina Restored |");
+		System.out.println("|     Seed     | Days to Grow | Days to Rebear | Number of Harvests | Price | Selling Price | Stamina Restored |");
 		for (SeedCrop sc : inventory.getSc()) {
-			System.out.printf("%.12s          |      %d      |       %d       |         %d         |   %d  |      %d       |        %d        |\n", sc.getName(), sc.getDaysToGrow(), sc.getRebear(), sc.getHarvests(), sc.getSeedPrice(), sc.getSellPrice());
+			System.out.printf("|%14s|      %2d      |       %2d       |         %2d         |   %2d  |      %3d      |        %2d        |\n", sc.getName(), sc.getDaysToGrow(), sc.getRebear(), sc.getHarvests(), sc.getSeedPrice(), sc.getSellPrice(), sc.getStaminaRestored());
 		}
 		System.out.println();
 

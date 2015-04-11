@@ -55,7 +55,7 @@ public class GameEngine {
 					break;
 				case "buy":
 					if (p.isInStore()) {
-						((Store)map.getField()[p.getY()][p.getX()]).openStore(p, scan);
+						((Store) map.getField()[p.getY()][p.getX()]).openStore(p, scan);
 					} else
 						System.out.println("You are not in the store.");
 					break;
@@ -64,27 +64,14 @@ public class GameEngine {
 						p.plantCrop(map.getField(), scan);
 					}
 					break;
-//				case "turnip":
-//					if (p.getMoney() >= 10 && p.isInStore()) {
-//						p.setMoney(p.getMoney() - 10);
-//						p.getInventory().getSeeds().replace("turnip", p.getInventory().getSeeds().get("turnip") + 1);
-//					} else if (p.getMoney() < 10 && p.isInStore())
-//						out.append("You have not enough money\n");
-//					else if (!p.isInStore())
-//						out.append("You are not in the store\n");
-//					else if (p.isInPlantField() && p.getInventory().getSeeds().get("turnip") > 0) {
-//						p.getInventory().getSeeds().replace("turnip", p.getInventory().getSeeds().get("turnip") - 1);
-//						p.plantCrop("turnip", tempMap);
-//					} else if (p.isInPlantField() && p.getInventory().getSeeds().get("turnip") == 0) {
-//						out.append("You have no " + input + "in the inventory\n");
-//					}
-//					break;
-
+				case "equip":
+					p.equipTool(scan);
+					break;
 				case "sleep":
 					if (p.isInHouse()) {
 
 					} else
-						System.out.println("You are not inside the house.");
+						System.out.println("You are not in the house.");
 					break;
 				default:
 					out.append("Invalid command.\n");

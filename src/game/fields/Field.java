@@ -1,6 +1,6 @@
 package game.fields;
 
-import game.player.*;
+import game.player.Player;
 
 /**
  * The superclass of all fields

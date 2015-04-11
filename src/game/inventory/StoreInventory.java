@@ -1,5 +1,7 @@
 package game.inventory;
 
+import game.inventory.crops.SeedCrop;
+
 /**
  * The class which contains all the items for the store
  */

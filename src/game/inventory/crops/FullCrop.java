@@ -1,9 +1,9 @@
-package game.inventory;
+package game.inventory.crops;
 
 /**
  * Fully grown crop class.
  */
-public class FullCrop extends ItemCrop{
+public class FullCrop extends ItemCrop {
 	public FullCrop(String name, int sellPrice, int staminaRestored) {
 		super(name, sellPrice, staminaRestored);
 	}

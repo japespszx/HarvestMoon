@@ -4,8 +4,10 @@ import game.engine.Day;
 import game.fields.Field;
 import game.fields.PlantField;
 import game.inventory.PlayerInventory;
-import game.inventory.SeedCrop;
+import game.inventory.crops.SeedCrop;
+import game.inventory.tools.Tool;
 
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 /**
@@ -19,7 +21,7 @@ public class Player {
 			money,
 			x, y; /*coordinates*/
 	private PlayerInventory inventory;
-	private String curTool;
+	private Tool curTool;
 	private boolean hasAxe;
 
 
@@ -41,15 +43,13 @@ public class Player {
 	}
 
 	/**
-	 *
 	 * @return name of tool equipped
 	 */
-	public String getCurTool() {
+	public Tool getCurTool() {
 		return curTool;
 	}
 
 	/**
-	 *
 	 * @return if player does or does not have an axe
 	 */
 	public boolean hasAxe() {
@@ -61,18 +61,26 @@ public class Player {
 		hasAxe = true;
 	}
 
-	public void setCurTool(String s) {
-		switch (s) {
-			case "hoe":
-			case "watering can":
-			case "hammer":
-			case "sickle":
-				curTool = s;
-				break;
-			case "axe":
-				if (hasAxe)
-					curTool = s;
+	public void equipTool(Scanner scan) {
+		System.out.println("Choose a tool to equip:");
+		System.out.println("Hoe");
+		System.out.println("Watering can");
+		System.out.println("Hammer");
+		System.out.println("Axe");
+		System.out.println("Sickle");
+		System.out.println();
+
+		String s = scan.nextLine().toLowerCase();
+		for (Entry<String, Tool> e : inventory.getTools().entrySet()) {
+			if (e.getValue().getName().equals(s) && e.getValue().isExist()) {
+				curTool = e.getValue();
+				return;
+			}
 		}
+
+		/*if invalid input*/
+		System.out.println("No such tool exists. Press enter to return");
+		scan.nextLine();
 	}
 
 	/**
@@ -179,7 +187,6 @@ public class Player {
 
 	/**
 	 * Sets the x coord of the player
-	 *
 	 */
 	public void setX(int x) {
 		this.x = x;
@@ -194,6 +201,7 @@ public class Player {
 
 	/**
 	 * Adds money to player
+	 *
 	 * @param x - amount of money to add
 	 */
 	public void addMoney(int x) {
@@ -202,6 +210,7 @@ public class Player {
 
 	/**
 	 * Subtracts money from player
+	 *
 	 * @param x - amount of money to subtract
 	 */
 	public void subtractMoney(int x) {
@@ -221,7 +230,7 @@ public class Player {
 	public void plantCrop(Field[][] field, Scanner scan) {
 		String s;
 		SeedCrop sc;
-		PlantField pf = (PlantField)field[y][x];
+		PlantField pf = (PlantField) field[y][x];
 
 		System.out.println("What would you like to plant?");
 		System.out.println("turnip      --- " + inventory.getSeeds().get("turnip").getCount());
@@ -233,14 +242,16 @@ public class Player {
 		System.out.println("magic grass --- " + inventory.getSeeds().get("magic grass").getCount());
 		System.out.println();
 
-		switch(s = scan.nextLine()) {
+		switch (s = scan.nextLine()) {
 			case "turnip":
 			case "potato":
 			case "corn":
 			case "tomato":
 			case "kamote":
 			case "eggplant":
-			case "magic grass": sc = inventory.getSeeds().get(s); break;
+			case "magic grass":
+				sc = inventory.getSeeds().get(s);
+				break;
 			default:
 				System.out.println("Invalid seed name. Press enter to return.");
 				scan.nextLine();
@@ -266,6 +277,8 @@ public class Player {
 	 * Uses whatever tool is equipped on the player
 	 */
 	public void useTool(Field[][] field) {
+		switch (curTool) {
 
+		}
 	}
 }
