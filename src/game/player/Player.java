@@ -3,9 +3,10 @@ package game.player;
 import game.engine.Day;
 import game.fields.Field;
 import game.fields.PlantField;
-import game.inventory.PlantedCrop;
 import game.inventory.PlayerInventory;
 import game.inventory.SeedCrop;
+
+import java.util.Scanner;
 
 /**
  * The player class
@@ -178,6 +179,7 @@ public class Player {
 
 	/**
 	 * Sets the x coord of the player
+	 *
 	 */
 	public void setX(int x) {
 		this.x = x;
@@ -216,9 +218,48 @@ public class Player {
 	/**
 	 * Player plants a crop on the field he is standing on
 	 */
-	public void plantCrop(SeedCrop seed, Field[][] field) {
-		PlantField one = (PlantField) field[y][x];
-		one.setCrop(new PlantedCrop(seed));
+	public void plantCrop(Field[][] field, Scanner scan) {
+		String s;
+		SeedCrop sc;
+		PlantField pf = (PlantField)field[y][x];
+
+		System.out.println("What would you like to plant?");
+		System.out.println("turnip      --- " + inventory.getSeeds().get("turnip").getCount());
+		System.out.println("potato      --- " + inventory.getSeeds().get("potato").getCount());
+		System.out.println("corn        --- " + inventory.getSeeds().get("corn").getCount());
+		System.out.println("tomato      --- " + inventory.getSeeds().get("tomato").getCount());
+		System.out.println("kamote      --- " + inventory.getSeeds().get("kamote").getCount());
+		System.out.println("eggplant    --- " + inventory.getSeeds().get("eggplant").getCount());
+		System.out.println("magic grass --- " + inventory.getSeeds().get("magic grass").getCount());
+		System.out.println();
+
+		switch(s = scan.nextLine()) {
+			case "turnip":
+			case "potato":
+			case "corn":
+			case "tomato":
+			case "kamote":
+			case "eggplant":
+			case "magic grass": sc = inventory.getSeeds().get(s); break;
+			default:
+				System.out.println("Invalid seed name. Press enter to return.");
+				scan.nextLine();
+				return;
+		}
+
+		if (!pf.hasCrop()) {
+			if (sc.getCount() > 0) {
+				sc.subtractCount();
+			} else {
+				System.out.println("You don't have enough of these seeds. Press enter to return.");
+				scan.nextLine();
+				return;
+			}
+
+			pf.setCrop(sc);
+		} else {
+			System.out.println("There is already a plant on the field. Press enter to return.");
+		}
 	}
 
 	/**

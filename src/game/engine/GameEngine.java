@@ -61,7 +61,7 @@ public class GameEngine {
 					break;
 				case "plant":
 					if (p.isInPlantField()) {
-
+						p.plantCrop(map.getField(), scan);
 					}
 					break;
 //				case "turnip":

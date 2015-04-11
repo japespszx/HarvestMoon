@@ -14,6 +14,14 @@ public class PlantedCrop {
 					readyToHarvest,
 					harvestedOnce;
 
+	public boolean isMagicGrassed() {
+		return magicGrassed;
+	}
+
+	public boolean isReadyToHarvest() {
+		return readyToHarvest;
+	}
+
 	public PlantedCrop(SeedCrop seed) {
 		day = 0;
 

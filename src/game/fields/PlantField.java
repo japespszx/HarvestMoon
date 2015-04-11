@@ -1,6 +1,7 @@
 package game.fields;
 
 import game.inventory.PlantedCrop;
+import game.inventory.SeedCrop;
 import game.player.Player;
 
 /**
@@ -23,7 +24,7 @@ public class PlantField extends Field {
 	/**
 	 * Return whether there is a plant on the field or not
 	 */
-	public boolean hasPlant() {
+	public boolean hasCrop() {
 		return crop != null;
 	}
 
@@ -37,8 +38,8 @@ public class PlantField extends Field {
 	/**
 	 * Sets a crop on the field
 	 */
-	public void setCrop(PlantedCrop crop) {
-		this.crop = crop;
+	public void setCrop(SeedCrop seed) {
+		this.crop = new PlantedCrop(seed);
 	}
 
 	/**
@@ -62,13 +63,17 @@ public class PlantField extends Field {
 		/*if player is on the same coords as this field*/
 		if (p.getX() == this.getX() && p.getY() == this.getY())
 			setCurDisplay('v');
-		else if (!tilled && !hasPlant())/*if player is not on this field*/
+		else if (!tilled && !hasCrop())/*if player is not on this field*/
 			setCurDisplay('-');
-		else if (!hasPlant())
+		else if (!hasCrop())
 			setCurDisplay('~');
-		else if (hasPlant()) {
+		else if (hasCrop()) {
 			if (crop.getDay() == 0) {
-				setCurDisplay(':');
+				if(crop.isWatered()) {
+					setCurDisplay(':');
+				} else {
+					setCurDisplay(';');
+				}
 			} else {
 				if (crop.isWatered()) {
 					switch (crop.getName()) {

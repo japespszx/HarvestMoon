@@ -9,6 +9,14 @@ public class PlayerInventory {
 	private HashMap<String, SeedCrop> seeds;
 	private HashMap<String, FullCrop> crops;
 
+	public HashMap<String, FullCrop> getCrops() {
+		return crops;
+	}
+
+	public HashMap<String, SeedCrop> getSeeds() {
+		return seeds;
+	}
+
 	/**
 	 * Assigns a value to the hashmaps and the arraylist and adds default values to them
 	 */
