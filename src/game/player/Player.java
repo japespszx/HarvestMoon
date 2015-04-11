@@ -5,6 +5,7 @@ import game.fields.Field;
 import game.fields.PlantField;
 import game.inventory.PlantedCrop;
 import game.inventory.PlayerInventory;
+import game.inventory.SeedCrop;
 
 /**
  * The player class
@@ -150,7 +151,7 @@ public class Player {
 	/**
 	 * Returns true if player is in the farm
 	 */
-	public boolean isInFarm() {
+	public boolean isInPlantField() {
 		return y >= 5;
 	}
 
@@ -215,10 +216,9 @@ public class Player {
 	/**
 	 * Player plants a crop on the field he is standing on
 	 */
-	public void plantCrop(String plant, Field[][] field) {
+	public void plantCrop(SeedCrop seed, Field[][] field) {
 		PlantField one = (PlantField) field[y][x];
-		one.setPlanted(true);
-		one.setCrop(new PlantedCrop(plant));
+		one.setCrop(new PlantedCrop(seed));
 	}
 
 	/**

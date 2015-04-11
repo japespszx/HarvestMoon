@@ -6,26 +6,23 @@ package game.inventory;
 public class PlantedCrop {
 	private String name;
 	private int day,
-			daysToGrow;
-	private boolean watered;
+			daysToGrow,
+			harvests,
+			rebear;
+	private boolean watered,
+					magicGrassed,
+					readyToHarvest,
+					harvestedOnce;
 
-	public PlantedCrop(String name) {
+	public PlantedCrop(SeedCrop seed) {
 		day = 0;
 
-		switch (name.toLowerCase()) {
-			case "turnip":
-				daysToGrow = 4;
-				break;
-			case "potato":
-				daysToGrow = 6;
-				break;
-			case "kamote":
-				daysToGrow = 8;
-				break;
-			case "magic grass":
-				daysToGrow = 4;
-				break;
-		}
+		this.name = seed.getName();
+		this.harvests = seed.getHarvests();
+		this.rebear = seed.getRebear();
+		this.daysToGrow = seed.getDaysToGrow();
+
+		watered = harvestedOnce = magicGrassed = readyToHarvest = false;
 	}
 
 	public boolean isWatered() {
@@ -48,5 +45,14 @@ public class PlantedCrop {
 
 	public int getDay() {
 		return day;
+	}
+
+	public void magicate() {
+		magicGrassed = true;
+		daysToGrow += 2;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

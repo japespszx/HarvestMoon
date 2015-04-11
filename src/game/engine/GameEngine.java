@@ -59,6 +59,11 @@ public class GameEngine {
 					} else
 						System.out.println("You are not in the store.");
 					break;
+				case "plant":
+					if (p.isInPlantField()) {
+
+					}
+					break;
 //				case "turnip":
 //					if (p.getMoney() >= 10 && p.isInStore()) {
 //						p.setMoney(p.getMoney() - 10);
@@ -67,10 +72,10 @@ public class GameEngine {
 //						out.append("You have not enough money\n");
 //					else if (!p.isInStore())
 //						out.append("You are not in the store\n");
-//					else if (p.isInFarm() && p.getInventory().getSeeds().get("turnip") > 0) {
+//					else if (p.isInPlantField() && p.getInventory().getSeeds().get("turnip") > 0) {
 //						p.getInventory().getSeeds().replace("turnip", p.getInventory().getSeeds().get("turnip") - 1);
 //						p.plantCrop("turnip", tempMap);
-//					} else if (p.isInFarm() && p.getInventory().getSeeds().get("turnip") == 0) {
+//					} else if (p.isInPlantField() && p.getInventory().getSeeds().get("turnip") == 0) {
 //						out.append("You have no " + input + "in the inventory\n");
 //					}
 //					break;
