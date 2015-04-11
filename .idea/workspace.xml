@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a72deae6-d36c-476b-8cea-20eea4333b37" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game/inventory/crops/ItemCrop.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game/inventory/crops/SeedCrop.java" />
-      <change type="DELETED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\ItemCrop.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\PlayerTools.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\SeedCrop.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\Tool.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\FullCrop.java" afterPath="$PROJECT_DIR$/src/game/inventory/crops/FullCrop.java" />
-      <change type="MOVED" beforePath="C:\Users\efren\Desktop\OBJECTP MP\src\game\inventory\PlantedCrop.java" afterPath="$PROJECT_DIR$/src/game/inventory/crops/PlantedCrop.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/game/engine/GameEngine.class" afterPath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/game/engine/GameEngine.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/Main.class" afterPath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/game/fields/Store.class" afterPath="$PROJECT_DIR$/out/production/[OBJECTP]Harvest Moon/game/fields/Store.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/fields/Field.java" afterPath="$PROJECT_DIR$/src/game/fields/Field.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/engine/GameEngine.java" afterPath="$PROJECT_DIR$/src/game/engine/GameEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/fields/PlantField.java" afterPath="$PROJECT_DIR$/src/game/fields/PlantField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/player/Player.java" afterPath="$PROJECT_DIR$/src/game/player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/inventory/PlayerInventory.java" afterPath="$PROJECT_DIR$/src/game/inventory/PlayerInventory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/fields/Store.java" afterPath="$PROJECT_DIR$/src/game/fields/Store.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/inventory/StoreInventory.java" afterPath="$PROJECT_DIR$/src/game/inventory/StoreInventory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HarvestMoon-master.iws" />
@@ -802,7 +787,7 @@
       <workItem from="1428632650406" duration="7535000" />
       <workItem from="1428655832600" duration="3156000" />
       <workItem from="1428736208779" duration="7761000" />
-      <workItem from="1428760103742" duration="14140000" />
+      <workItem from="1428760103742" duration="14151000" />
     </task>
     <task id="LOCAL-00001" summary="Packaged">
       <created>1428550912256</created>
@@ -828,11 +813,17 @@
       <option name="project" value="LOCAL" />
       <updated>1428765489435</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Edited some fields">
+      <created>1428775947319</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1428775947319</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43239000" />
+    <option name="totallyTimeSpent" value="43250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
@@ -902,6 +893,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Packaged" />
     <MESSAGE value="Edited some fields" />
     <option name="LAST_COMMIT_MESSAGE" value="Edited some fields" />
