@@ -42,11 +42,13 @@ public class PlantedCrop {
 	}
 
 	public void addDay() {
-		if (day < daysToGrow && watered)
+		if (day < daysToGrow && watered) {
 			day++;
+		}
 
-		if (day == daysToGrow)
+		if (day == daysToGrow) {
 			readyToHarvest = true;
+		}
 
 		watered = false;
 	}

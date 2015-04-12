@@ -53,9 +53,10 @@ public abstract class Field {
 	 */
 	public void updateField(Player p) {
 		/*if player is on the same coords as this field*/
-		if (p.getX() == this.x && p.getY() == this.y)
+		if (p.getX() == this.x && p.getY() == this.y) {
 			curDisplay = 'v';
-		else /*if player is not on this field*/
+		} else /*if player is not on this field*/ {
 			curDisplay = defDisplay;
+		}
 	}
 }

@@ -47,12 +47,13 @@ public class Weather {
 	private void setForecast() {
 		int generator = rand.nextInt(100) + 1;
 
-		if (generator <= 80)
+		if (generator <= 80) {
 			forecast = "sunny";
-		else if (generator <= 95)
+		} else if (generator <= 95) {
 			forecast = "rainy";
-		else
+		} else {
 			forecast = "stormy";
+		}
 	}
 
 	/**

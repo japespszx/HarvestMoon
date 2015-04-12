@@ -1,7 +1,7 @@
 package game.fields;
 
-import game.inventory.crops.SeedCrop;
 import game.inventory.StoreInventory;
+import game.inventory.crops.SeedCrop;
 import game.player.Player;
 
 import java.util.Scanner;
@@ -36,50 +36,57 @@ public class Store extends Field {
 				if (p.getMoney() >= inventory.getTurnip().getSeedPrice()) {
 					p.subtractMoney(inventory.getTurnip().getSeedPrice());
 					p.getInventory().addSeed("turnip");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "potato":
 				if (p.getMoney() >= inventory.getPotato().getSeedPrice()) {
 					p.subtractMoney(inventory.getPotato().getSeedPrice());
 					p.getInventory().addSeed("potato");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "corn":
 				if (p.getMoney() >= inventory.getCorn().getSeedPrice()) {
 					p.subtractMoney(inventory.getCorn().getSeedPrice());
 					p.getInventory().addSeed("corn");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "tomato":
 				if (p.getMoney() >= inventory.getTomato().getSeedPrice()) {
 					p.subtractMoney(inventory.getTomato().getSeedPrice());
 					p.getInventory().addSeed("tomato");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "kamote":
 				if (p.getMoney() >= inventory.getKamote().getSeedPrice()) {
 					p.subtractMoney(inventory.getKamote().getSeedPrice());
 					p.getInventory().addSeed("kamote");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "eggplant":
 				if (p.getMoney() >= inventory.getEggplant().getSeedPrice()) {
 					p.subtractMoney(inventory.getEggplant().getSeedPrice());
 					p.getInventory().addSeed("eggplant");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "magic grass":
 				if (p.getMoney() >= inventory.getMagicGrass().getSeedPrice()) {
 					p.subtractMoney(inventory.getMagicGrass().getSeedPrice());
 					p.getInventory().addSeed("magic grass");
-				} else
+				} else {
 					System.out.println("Not enough money.");
+				}
 				break;
 			case "axe":
 				if (!p.hasAxe()) {
@@ -88,8 +95,9 @@ public class Store extends Field {
 					} else {
 						System.out.println("Not enough money.");
 					}
-				} else
+				} else {
 					System.out.println("You already have an axe.");
+				}
 
 				break;
 			case "vitamins":

@@ -72,14 +72,14 @@ public class Player {
 
 		String s = scan.nextLine().toLowerCase();
 		for (Entry<String, Tool> e : inventory.getTools().entrySet()) {
-			if (e.getValue().getName().equals(s) && e.getValue().isExist()) {
+			if (e.getValue().getName().equals(s)) {
 				curTool = e.getValue();
 				return;
 			}
 		}
 
 		/*if invalid input*/
-		System.out.println("No such tool exists. Press enter to return");
+		System.out.println("No such tool exists in your inventory. Press enter to return");
 		scan.nextLine();
 	}
 
@@ -276,9 +276,13 @@ public class Player {
 	/**
 	 * Uses whatever tool is equipped on the player
 	 */
-	public void useTool(Field[][] field) {
-		switch (curTool) {
-
+	public void useTool(Field[][] field, Scanner scan) {
+		switch (curTool.getName()) {
+			case "watering can":
+			case "hoe":
+			case "sickle":
+				curTool.use((PlantField)field[y][x], scan);
+				break;
 		}
 	}
 }

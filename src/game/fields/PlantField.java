@@ -61,9 +61,9 @@ public class PlantField extends Field {
 	 */
 	public void updateField(Player p) {
 		/*if player is on the same coords as this field*/
-		if (p.getX() == this.getX() && p.getY() == this.getY())
+		if (p.getX() == this.getX() && p.getY() == this.getY()) {
 			setCurDisplay('v');
-		else if (hasCrop()) {
+		} else if (hasCrop()) {
 			if (crop.getName() == null) {
 				crop = null;
 			} else {

@@ -38,41 +38,69 @@ public class GameEngine {
 
 			switch (scan.nextLine().toLowerCase()) {
 				case "w":
-					if (p.getY() - 1 >= 0)
+					if (p.getY() - 1 >= 0) {
 						p.setY(p.getY() - 1);
+					}
 					break;
+
 				case "a":
-					if (p.getX() - 1 >= 0)
+					if (p.getX() - 1 >= 0) {
 						p.setX(p.getX() - 1);
+					}
 					break;
+
 				case "s":
-					if (p.getY() + 1 <= 15)
+					if (p.getY() + 1 <= 15) {
 						p.setY(p.getY() + 1);
+					}
 					break;
+
 				case "d":
-					if (p.getX() + 1 <= 19)
+					if (p.getX() + 1 <= 19) {
 						p.setX(p.getX() + 1);
+					}
 					break;
+
 				case "buy":
 					if (p.isInStore()) {
 						((Store) map.getField()[p.getY()][p.getX()]).openStore(p, scan);
-					} else
-						System.out.println("You are not in the store.");
+					} else {
+						System.out.println("You are not in the store. Press enter to continue.");
+						scan.nextLine();
+					}
 					break;
+
 				case "plant":
 					if (p.isInPlantField()) {
 						p.plantCrop(map.getField(), scan);
+					} else {
+						System.out.println("You are not in the plant field. Press enter to continue.");
+						scan.nextLine();
 					}
 					break;
+
 				case "equip":
 					p.equipTool(scan);
 					break;
+
 				case "sleep":
 					if (p.isInHouse()) {
-
-					} else
-						System.out.println("You are not in the house.");
+						//put code here
+					} else {
+						System.out.println("You are not in the house. Press enter to continue");
+						scan.nextLine();
+					}
 					break;
+
+				case "use":
+					if (p.isInPlantField()) {
+						p.useTool(map.getField(), scan);
+					} else {
+						System.out.println("You are not in the plant field. Press enter to continue.");
+						scan.nextLine();
+					}
+					break;
+
 				default:
 					out.append("Invalid command.\n");
 			}

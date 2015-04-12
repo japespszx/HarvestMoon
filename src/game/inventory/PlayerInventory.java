@@ -40,8 +40,8 @@ public class PlayerInventory {
 		tools.put("hoe", new Tool("hoe"));
 		tools.put("watering can", new Tool("watering can"));
 		tools.put("hammer", new Tool("hammer"));
-		tools.put("axe", new Tool("axe"));
 		tools.put("sickle", new Tool("sickle"));
+		/*put the axe when player buys it from store*/
 
 	}
 
