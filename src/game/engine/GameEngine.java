@@ -114,6 +114,9 @@ public class GameEngine {
 				case "refill":
 					if (p.isInPond()) {
 						p.getInventory().getTools().get("watering can");
+					} else {
+						System.out.println("You are not in the pond. Press enter to continue.");
+						scan.nextLine();
 					}
 
 				default:
