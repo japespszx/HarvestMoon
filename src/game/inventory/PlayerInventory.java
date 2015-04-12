@@ -2,10 +2,7 @@ package game.inventory;
 
 import game.inventory.crops.FullCrop;
 import game.inventory.crops.SeedCrop;
-import game.inventory.tools.Hoe;
-import game.inventory.tools.Sickle;
-import game.inventory.tools.Tool;
-import game.inventory.tools.WateringCan;
+import game.inventory.tools.*;
 
 import java.util.HashMap;
 
@@ -42,7 +39,7 @@ public class PlayerInventory {
 
 		tools.put("hoe", new Hoe());
 		tools.put("watering can", new WateringCan());
-//		tools.put("hammer", new Tool("hammer"));
+		tools.put("hammer", new Hammer());
 		tools.put("sickle", new Sickle());
 		/*put the axe when player buys it from store*/
 

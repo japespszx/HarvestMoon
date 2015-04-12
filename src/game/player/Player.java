@@ -5,10 +5,13 @@ import game.fields.Field;
 import game.fields.PlantField;
 import game.fields.Store;
 import game.inventory.PlayerInventory;
+import game.inventory.crops.FullCrop;
 import game.inventory.crops.SeedCrop;
 import game.inventory.tools.Axe;
 import game.inventory.tools.Tool;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
@@ -24,6 +27,7 @@ public class Player {
 			x, y; /*coordinates*/
 	private PlayerInventory inventory;
 	private Tool curTool;
+	private ArrayList<FullCrop> cropsToSell;
 
 
 	/**
@@ -40,6 +44,7 @@ public class Player {
 		/*coordinates just outside the house*/
 		x = 8;
 		y = 3;
+		cropsToSell = new ArrayList<>();
 	}
 
 	/**
@@ -206,13 +211,6 @@ public class Player {
 	}
 
 	/**
-	 * Returns the profit from the bin
-	 */
-	public int getProfit() {
-		return profit;
-	}
-
-	/**
 	 * Player plants a crop on the field he is standing on
 	 */
 	public void plantCrop(Field[][] field, Scanner scan) {
@@ -363,5 +361,54 @@ public class Player {
 			default:
 				System.out.println("Invalid item.");
 		}
+	}
+
+	/**
+	 * This method is used to put items inside the bin.
+	 *
+	 * @param scan  Passed scanner to conserve memory
+	 */
+	public void openBin(Scanner scan) {
+		HashMap<String, FullCrop> crops = inventory.getCrops();
+		System.out.println("What would you like to sell?");
+		System.out.println("|     Crop     | In Inventory |");
+		for (Entry<String, FullCrop> e : crops.entrySet()) {
+			System.out.printf("|%14s|      %3d     |\n", e.getValue().getName(), e.getValue().getCount());
+		}
+		System.out.println();
+
+		String s = scan.nextLine();
+
+		if (crops.containsKey(s)) {
+			/*checker if count > 0 inside the subtractCount method*/
+			crops.get(s).subtractCount();
+			cropsToSell.add(crops.get(s));
+		} else {
+			System.out.println("Crop does not exist. Press enter to continue.");
+			scan.nextLine();
+		}
+	}
+
+	/**
+	 * Returns the current profit to be gained from the bin
+	 *
+	 * @return the profit
+	 */
+	public int getProfit() {
+		int ret = 0;
+
+		for (FullCrop crop : cropsToSell) {
+			ret += crop.getSellPrice();
+		}
+
+		return ret;
+	}
+
+	/**
+	 * Used to give the profit to the player
+	 */
+	public void giveProfit(Player p) {
+		p.addMoney(getProfit());
+		cropsToSell.clear();
 	}
 }

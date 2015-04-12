@@ -18,6 +18,4 @@ public class Store extends Field {
 	public StoreInventory getInventory() {
 		return inventory;
 	}
-
-
 }

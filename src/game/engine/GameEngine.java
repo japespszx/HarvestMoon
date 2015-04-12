@@ -105,10 +105,15 @@ public class GameEngine {
 
 				case "sell":
 					if (p.isInBin()) {
-						((Bin) map.getField()[p.getY()][p.getX()]).openBin(p.getInventory().getCrops(), scan);
+						p.openBin(scan);
 					} else {
 						System.out.println("You are not in the bin. Press enter to continue.");
 						scan.nextLine();
+					}
+
+				case "refill":
+					if (p.isInPond()) {
+						p.getInventory().getTools().get("watering can");
 					}
 
 				default:
