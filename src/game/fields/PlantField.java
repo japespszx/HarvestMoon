@@ -57,7 +57,7 @@ public class PlantField extends Field {
 	}
 
 	/**
-	 * Updates the field depending on the condition
+	 * Updates the field per command depending on the condition
 	 */
 	public void updateField(Player p) {
 		/*if player is on the same coords as this field*/
@@ -67,7 +67,9 @@ public class PlantField extends Field {
 			if (crop.getName() == null) {
 				crop = null;
 			} else {
-				if (crop.getDay() == 0) {
+				if (crop.isReadyToHarvest()) {
+					setCurDisplay('R');
+				} else if (crop.getDay() == 0) {
 					if (crop.isWatered()) {
 						setCurDisplay(';');
 					} else {

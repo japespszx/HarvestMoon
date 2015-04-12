@@ -44,6 +44,8 @@ public abstract class ItemCrop {
 	}
 
 	public void subtractCount() {
-		count--;
+		if (count > 0) {
+			count--;
+		}
 	}
 }

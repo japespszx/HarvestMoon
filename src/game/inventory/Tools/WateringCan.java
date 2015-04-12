@@ -32,7 +32,7 @@ public class WateringCan extends Tool {
 		}
 	}
 
-	public void fill() {
+	private void fill() {
 		uses = 10;
 	}
 }

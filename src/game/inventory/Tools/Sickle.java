@@ -18,7 +18,8 @@ public class Sickle extends Tool {
 
 	/**
 	 * Reaps whatever valid object is on the field
-	 * @param pf - used to modify the field
+	 *
+	 * @param pf   - used to modify the field
 	 * @param scan - used to scan next line
 	 */
 	@Override

@@ -3,8 +3,10 @@ package game.player;
 import game.engine.Day;
 import game.fields.Field;
 import game.fields.PlantField;
+import game.fields.Store;
 import game.inventory.PlayerInventory;
 import game.inventory.crops.SeedCrop;
+import game.inventory.tools.Axe;
 import game.inventory.tools.Tool;
 
 import java.util.Map.Entry;
@@ -22,7 +24,6 @@ public class Player {
 			x, y; /*coordinates*/
 	private PlayerInventory inventory;
 	private Tool curTool;
-	private boolean hasAxe;
 
 
 	/**
@@ -35,7 +36,6 @@ public class Player {
 		money = 100;
 		profit = 0;
 		inventory = new PlayerInventory();
-		hasAxe = false;
 
 		/*coordinates just outside the house*/
 		x = 8;
@@ -47,18 +47,6 @@ public class Player {
 	 */
 	public Tool getCurTool() {
 		return curTool;
-	}
-
-	/**
-	 * @return if player does or does not have an axe
-	 */
-	public boolean hasAxe() {
-		return hasAxe;
-	}
-
-	public void buyAxe() {
-		money -= 40;
-		hasAxe = true;
 	}
 
 	public void equipTool(Scanner scan) {
@@ -281,8 +269,99 @@ public class Player {
 			case "watering can":
 			case "hoe":
 			case "sickle":
-				curTool.use((PlantField)field[y][x], scan);
+				curTool.use((PlantField) field[y][x], scan);
 				break;
+		}
+		/*other tools not included yet. Wait for random elements*/
+	}
+
+	public void buy(Store s, Scanner scan) {
+		System.out.println("What would you like to buy?");
+		System.out.println("|     Seed     | Days to Grow | Days to Rebear | Number of Harvests | Price | Selling Price | Stamina Restored |");
+		for (SeedCrop sc : s.getInventory().getSc()) {
+			System.out.printf("|%14s|      %2d      |       %2d       |         %2d         |   %2d  |      %3d      |        %2d        |\n", sc.getName(), sc.getDaysToGrow(), sc.getRebear(), sc.getHarvests(), sc.getSeedPrice(), sc.getSellPrice(), sc.getStaminaRestored());
+		}
+		System.out.println();
+
+		switch (scan.nextLine()) {
+			case "turnip":
+				if (getMoney() >= s.getInventory().getTurnip().getSeedPrice()) {
+					subtractMoney(s.getInventory().getTurnip().getSeedPrice());
+					getInventory().addSeed("turnip");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "potato":
+				if (getMoney() >= s.getInventory().getPotato().getSeedPrice()) {
+					subtractMoney(s.getInventory().getPotato().getSeedPrice());
+					getInventory().addSeed("potato");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "corn":
+				if (getMoney() >= s.getInventory().getCorn().getSeedPrice()) {
+					subtractMoney(s.getInventory().getCorn().getSeedPrice());
+					getInventory().addSeed("corn");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "tomato":
+				if (getMoney() >= s.getInventory().getTomato().getSeedPrice()) {
+					subtractMoney(s.getInventory().getTomato().getSeedPrice());
+					getInventory().addSeed("tomato");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "kamote":
+				if (getMoney() >= s.getInventory().getKamote().getSeedPrice()) {
+					subtractMoney(s.getInventory().getKamote().getSeedPrice());
+					getInventory().addSeed("kamote");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "eggplant":
+				if (getMoney() >= s.getInventory().getEggplant().getSeedPrice()) {
+					subtractMoney(s.getInventory().getEggplant().getSeedPrice());
+					getInventory().addSeed("eggplant");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "magic grass":
+				if (getMoney() >= s.getInventory().getMagicGrass().getSeedPrice()) {
+					subtractMoney(s.getInventory().getMagicGrass().getSeedPrice());
+					getInventory().addSeed("magic grass");
+				} else {
+					System.out.println("Not enough money.");
+				}
+				break;
+			case "axe":
+				if (inventory.getTools().containsKey("axe")) {
+					if (getMoney() >= 40) {
+						subtractMoney(40);
+						inventory.getTools().put("axe", new Axe());
+					} else {
+						System.out.println("Not enough money.");
+					}
+				} else {
+					System.out.println("You already have an axe.");
+				}
+
+				break;
+			case "vitamins":
+				if (getMoney() >= 30) {
+					subtractMoney(30);
+					addMaxStamina();
+				} else {
+					System.out.println("Not enough money.");
+				}
+			default:
+				System.out.println("Invalid item.");
 		}
 	}
 }

@@ -10,6 +10,8 @@ public abstract class Field {
 	private int x, y;
 
 	/**
+	 * Initializes a Field object
+	 *
 	 * @param x          x coord of the field
 	 * @param y          y coord of the field
 	 * @param defDisplay default display of the field
@@ -21,6 +23,8 @@ public abstract class Field {
 	}
 
 	/**
+	 * Returns the x coord of the field object
+	 *
 	 * @return x coord of the field
 	 */
 	public int getX() {
@@ -28,6 +32,8 @@ public abstract class Field {
 	}
 
 	/**
+	 * Returns the y coord of the field object
+	 *
 	 * @return y coord of the field
 	 */
 	public int getY() {
@@ -35,6 +41,8 @@ public abstract class Field {
 	}
 
 	/**
+	 * Returns the current display value of the field
+	 *
 	 * @return character to be displayed
 	 */
 	public char getCurDisplay() {
@@ -42,6 +50,8 @@ public abstract class Field {
 	}
 
 	/**
+	 * Sets the display value of the field
+	 *
 	 * @param curDisplay of the field
 	 */
 	public void setCurDisplay(char curDisplay) {
@@ -50,6 +60,8 @@ public abstract class Field {
 
 	/**
 	 * Updates the field elements depending on the player's location
+	 *
+	 * @param p Used to update the player's location on the map
 	 */
 	public void updateField(Player p) {
 		/*if player is on the same coords as this field*/

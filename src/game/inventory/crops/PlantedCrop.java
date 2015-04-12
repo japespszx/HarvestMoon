@@ -41,7 +41,7 @@ public class PlantedCrop {
 		this.watered = watered;
 	}
 
-	public void addDay() {
+	public void nextDay() {
 		if (day < daysToGrow && watered) {
 			day++;
 		}

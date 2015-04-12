@@ -27,7 +27,9 @@ public abstract class Tool {
 	}
 
 	/**
-	 * @param pf - used to modify the field
+	 * Uses the tool
+	 *
+	 * @param pf   - used to modify the field
 	 * @param scan - used to scan line in case of wrong input
 	 */
 	public abstract void use(PlantField pf, Scanner scan);

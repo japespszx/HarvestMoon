@@ -1,5 +1,6 @@
 package game.engine;
 
+import game.fields.Bin;
 import game.fields.Store;
 import game.player.Player;
 
@@ -63,7 +64,7 @@ public class GameEngine {
 
 				case "buy":
 					if (p.isInStore()) {
-						((Store) map.getField()[p.getY()][p.getX()]).openStore(p, scan);
+						p.buy((Store) map.getField()[p.getY()][p.getX()], scan);
 					} else {
 						System.out.println("You are not in the store. Press enter to continue.");
 						scan.nextLine();
@@ -85,7 +86,8 @@ public class GameEngine {
 
 				case "sleep":
 					if (p.isInHouse()) {
-						//put code here
+						map.nextDay();
+
 					} else {
 						System.out.println("You are not in the house. Press enter to continue");
 						scan.nextLine();
@@ -96,10 +98,18 @@ public class GameEngine {
 					if (p.isInPlantField()) {
 						p.useTool(map.getField(), scan);
 					} else {
-						System.out.println("You are not in the plant field. Press enter to continue.");
+						System.out.println("You may not use the tool in this tile. Press enter to continue.");
 						scan.nextLine();
 					}
 					break;
+
+				case "sell":
+					if (p.isInBin()) {
+						((Bin) map.getField()[p.getY()][p.getX()]).openBin(p.getInventory().getCrops(), scan);
+					} else {
+						System.out.println("You are not in the bin. Press enter to continue.");
+						scan.nextLine();
+					}
 
 				default:
 					out.append("Invalid command.\n");

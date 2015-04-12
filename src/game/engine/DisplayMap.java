@@ -78,4 +78,15 @@ public class DisplayMap {
 			}
 		}
 	}
+
+	/**
+	 * Updates all the crops in each plant field when the player sleeps
+	 */
+	public void nextDay() {
+		for (int i = 5; i < 16; i++) {
+			for (int j = 0; j < 20; j++) {
+				((PlantField) field[i][j]).getCrop().nextDay();
+			}
+		}
+	}
 }
