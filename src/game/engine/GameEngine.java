@@ -32,7 +32,7 @@ public class GameEngine {
 				out.append("\n");
 			}
 
-			out.append("Stamina: " + p.getCurStamina() + "/" + p.getMaxStamina() + "\t" + "Money: " + p.getMoney() + '\t' + "Day: " + day.getDayCount());
+			out.append("Stamina: " + p.getCurStamina() + "/" + p.getMaxStamina() + "\t" + "Money: " + p.getMoney() + '\t' + "Day: " + day.getDayCount() + '\n' + "Tool: " + p.getCurTool());
 
 			System.out.println(out);
 			out.setLength(0);
@@ -87,7 +87,7 @@ public class GameEngine {
 				case "sleep":
 					if (p.isInHouse()) {
 						map.nextDay();
-
+						day.nextDay();
 					} else {
 						System.out.println("You are not in the house. Press enter to continue");
 						scan.nextLine();

@@ -8,6 +8,7 @@ import game.inventory.PlayerInventory;
 import game.inventory.crops.FullCrop;
 import game.inventory.crops.SeedCrop;
 import game.inventory.tools.Axe;
+import game.inventory.tools.Sickle;
 import game.inventory.tools.Tool;
 
 import java.util.ArrayList;
@@ -266,8 +267,10 @@ public class Player {
 		switch (curTool.getName()) {
 			case "watering can":
 			case "hoe":
-			case "sickle":
 				curTool.use((PlantField) field[y][x], scan);
+				break;
+			case "sickle":
+				((Sickle)curTool).use(inventory.getCrops(), (PlantField) field[y][x], scan);
 				break;
 		}
 		/*other tools not included yet. Wait for random elements*/

@@ -85,7 +85,8 @@ public class DisplayMap {
 	public void nextDay() {
 		for (int i = 5; i < 16; i++) {
 			for (int j = 0; j < 20; j++) {
-				((PlantField) field[i][j]).getCrop().nextDay();
+				if (((PlantField) field[i][j]).hasCrop())
+					((PlantField) field[i][j]).getCrop().nextDay();
 			}
 		}
 	}

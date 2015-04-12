@@ -64,69 +64,66 @@ public class PlantField extends Field {
 		if (p.getX() == this.getX() && p.getY() == this.getY()) {
 			setCurDisplay('v');
 		} else if (hasCrop()) {
-			if (crop.getName() == null) {
-				crop = null;
+			if (crop.isReadyToHarvest()) {
+				setCurDisplay('R');
+			} else if (crop.getDay() == 0) {
+				if (crop.isWatered()) {
+					setCurDisplay(';');
+				} else {
+					setCurDisplay(':');
+				}
 			} else {
-				if (crop.isReadyToHarvest()) {
-					setCurDisplay('R');
-				} else if (crop.getDay() == 0) {
-					if (crop.isWatered()) {
-						setCurDisplay(';');
-					} else {
-						setCurDisplay(':');
+				if (crop.isWatered()) {
+					switch (crop.getName()) {
+						case "turnip":
+							setCurDisplay('T');
+							break;
+						case "potato":
+							setCurDisplay('P');
+							break;
+						case "corn":
+							setCurDisplay('M');
+							break;
+						case "tomato":
+							setCurDisplay('K');
+							break;
+						case "kamote":
+							setCurDisplay('C');
+							break;
+						case "eggplant":
+							setCurDisplay('M');
+							break;
+						case "magic grass":
+							setCurDisplay('G');
+							break;
 					}
 				} else {
-					if (crop.isWatered()) {
-						switch (crop.getName()) {
-							case "turnip":
-								setCurDisplay('T');
-								break;
-							case "potato":
-								setCurDisplay('P');
-								break;
-							case "corn":
-								setCurDisplay('M');
-								break;
-							case "tomato":
-								setCurDisplay('K');
-								break;
-							case "kamote":
-								setCurDisplay('C');
-								break;
-							case "eggplant":
-								setCurDisplay('M');
-								break;
-							case "magic grass":
-								setCurDisplay('G');
-								break;
-						}
-					} else {
-						switch (crop.getName()) {
-							case "turnip":
-								setCurDisplay('t');
-								break;
-							case "potato":
-								setCurDisplay('p');
-								break;
-							case "corn":
-								setCurDisplay('m');
-								break;
-							case "tomato":
-								setCurDisplay('k');
-								break;
-							case "kamote":
-								setCurDisplay('c');
-								break;
-							case "eggplant":
-								setCurDisplay('m');
-								break;
-							case "magic grass":
-								setCurDisplay('g');
-								break;
-						}
+					switch (crop.getName()) {
+						case "turnip":
+							setCurDisplay('t');
+							break;
+						case "potato":
+							setCurDisplay('p');
+							break;
+						case "corn":
+							setCurDisplay('m');
+							break;
+						case "tomato":
+							setCurDisplay('k');
+							break;
+						case "kamote":
+							setCurDisplay('c');
+							break;
+						case "eggplant":
+							setCurDisplay('m');
+							break;
+						case "magic grass":
+							setCurDisplay('g');
+							break;
 					}
 				}
 			}
+
 		} else if (!tilled && !hasCrop()) {/*if player is not on this field*/
 			setCurDisplay('-');
 		} else if (!hasCrop()) {

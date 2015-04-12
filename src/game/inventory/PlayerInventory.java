@@ -20,6 +20,7 @@ public class PlayerInventory {
 	public PlayerInventory() {
 		seeds = new HashMap<>();
 		crops = new HashMap<>();
+		tools = new HashMap<>();
 
 		seeds.put("turnip", new SeedCrop("turnip", "Single Harvest", 4, 0, 1, 10, 15, 5));
 		seeds.put("potato", new SeedCrop("potato", "Single Harvest", 6, 0, 1, 15, 25, 10));
